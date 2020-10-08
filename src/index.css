@@ -1,13 +1,71 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: #2199df;
+  text-decoration: none;
+}
+
+
+ul {
+  margin-left: 1.5rem;
+  list-style: none;
+}
+
+button,
+input[type="submit"] {
+  border: none;
+  background: none;
+  color: unset;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 1em 0;
+}
+
+body {
+  font-family: "roboto"
+}
+
+header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(172, 65, 65);
+}
+
+.title {
+  margin: 0;
+  color: white;
+  padding: 0 1rem;
+
+}
+
+.auth-options {
+  height: 100%;
+  display: flex;
+}
+
+.auth-options button {
+  background-color: rgb(104, 37, 37);
+  padding: 0 1rem;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.auth-options button:hover {
+  background-color: rgb(180, 67, 67);
 }

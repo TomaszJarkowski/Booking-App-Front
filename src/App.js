@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./components/pages/Home";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-import Header from "./components/layout/Header";
+import { BrowserRouter } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Page from "./Page";
 import UserContext from "./context/UserContext";
 
 function App() {
@@ -49,12 +48,9 @@ function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-          </Switch>
+          <Navbar />
+          <Page />
+          <Footer />
         </UserContext.Provider>
       </BrowserRouter>
     </>

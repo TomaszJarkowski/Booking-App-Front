@@ -1,0 +1,70 @@
+nav {
+    .logo {
+        margin: 0 10px;
+        color: #444;
+        font-size: 21px;
+
+        i {
+            margin-right: 10px;
+        }
+
+        @media (min-width: 400px) {
+            font-size: 24px;
+        }
+
+        @media (min-width: 550px) {
+            font-size: 28px;
+        }
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        padding: 20px 0;
+    }
+
+    .auth-options {
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @media (min-width: 550px) {
+            flex-direction: row;
+        }
+
+    }
+
+    button {
+        margin-top: 10px;
+    }
+
+    .user {
+        display: flex;
+        cursor: pointer;
+        margin-right: 40px;
+
+        p {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        img {
+            width: 30px;
+            margin: 0 5px;
+        }
+    }
+
+    .button-logout {
+        padding: 0;
+        border-radius: 0;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid $primary-color;
+        }
+    }
+}

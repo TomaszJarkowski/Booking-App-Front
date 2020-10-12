@@ -1,33 +1,63 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
+import validationLogin from "../../validation/validationLogin";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const { setUserData } = useContext(UserContext);
   const history = useHistory();
+
+  const validation = () => {
+    setIsError(false);
+    try {
+      validationLogin(email, password);
+    } catch (e) {
+      setError(e.message);
+      setIsError(true);
+    }
+  };
+
+  const postLogin = async (user) => {
+    setLoading(true);
+    try {
+      const login = await fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+      const loginResponse = await login.json();
+      setLoading(false);
+      if (loginResponse.error) {
+        setError(loginResponse.error);
+        setIsError(true);
+      } else {
+        setUserData({
+          token: loginResponse.token,
+          user: loginResponse.user,
+        });
+        localStorage.setItem("auth-token", loginResponse.token);
+        history.push("/booking");
+      }
+    } catch (e) {
+      setLoading(false);
+      setError("Failed to fetch");
+      setIsError(true);
+    }
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     const user = { email, password };
-
-    const login = await fetch("http://localhost:3000/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-
-    const logiResponse = await login.json();
-    console.log(logiResponse);
-
-    setUserData({
-      token: logiResponse.token,
-      user: logiResponse.user,
-    });
-
-    localStorage.setItem("auth-token", logiResponse.token);
-    history.push("/");
+    if (!isError && email && password) {
+      await postLogin(user);
+    }
   };
   return (
     <>
@@ -39,17 +69,25 @@ const Login = () => {
             <input
               type="email"
               id="login-email"
-              onChange={(e) => setEmail(e.target.value)}
+              onKeyUp={validation}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                validation();
+              }}
             />
-
             <label htmlFor="login-password">Password</label>
             <input
               type="password"
               id="login-password"
-              onChange={(e) => setPassword(e.target.value)}
+              onKeyUp={validation}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                validation();
+              }}
             />
-
             <button className="button button-primary">Log in</button>
+            {loading ? <p>Loading</p> : null}
+            {isError ? <p className="error-message">{error}</p> : null}
           </form>
         </div>
       </div>

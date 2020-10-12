@@ -9,6 +9,7 @@ const AuthOptions = () => {
 
   const register = () => history.push("/register");
   const login = () => history.push("/login");
+  const dashboard = () => history.push("/dashboard");
   const logout = () => {
     setUserData({
       token: undefined,
@@ -20,7 +21,7 @@ const AuthOptions = () => {
     <div className="auth-options">
       {userData.user ? (
         <>
-          <div className="user">
+          <div className="user" onClick={dashboard}>
             <img src={userSVG} alt="" />
             <p>{userData.user.displayName}</p>
           </div>

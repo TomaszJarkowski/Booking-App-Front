@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 
 const Booking = () => {
-  const { userData, setUserData } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   return (
     <Route

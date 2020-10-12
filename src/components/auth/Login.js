@@ -6,7 +6,7 @@ import validationLogin from "../../validation/validationLogin";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { setUserData } = useContext(UserContext);
@@ -85,7 +85,11 @@ const Login = () => {
                 validation();
               }}
             />
-            <button className="button button-primary">Log in</button>
+            {!isError ? (
+              <button className="button button-primary">Log in</button>
+            ) : (
+              <button className="button button-disabled">Log in</button>
+            )}
             {loading ? <p>Loading</p> : null}
             {isError ? <p className="error-message">{error}</p> : null}
           </form>

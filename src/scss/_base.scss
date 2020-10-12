@@ -40,3 +40,14 @@ button {
 .button-secondary {
     border: 3px solid $primary-color;
 }
+
+.button-disabled {
+    cursor: default;
+    color: gray;
+    background: rgb(236, 236, 236);
+    border: 3px solid rgb(236, 236, 236);
+}
+
+.star {
+    color: #ff0099;
+}

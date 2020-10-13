@@ -32,6 +32,11 @@ button {
     }
 }
 
+.error-message {
+    color: #ff0099;
+    font-weight: bold;
+}
+
 .button-primary {
     background: $primary-color;
     border: 3px solid $primary-color;

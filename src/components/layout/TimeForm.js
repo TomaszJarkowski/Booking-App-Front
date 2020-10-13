@@ -1,11 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import BookContext from "../../context/BookContext";
 import Modal from "./Modal";
+import validationBook from "../../validation/validationBook";
+
 const TimeForm = () => {
   const { bookData, setBookData } = useContext(BookContext);
+
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [numberOfSeats, setNumberOfSeats] = useState("1");
+  const [hour, setHour] = useState("10:00");
+  const [isError, setIsError] = useState(true);
+  const [error, setError] = useState("");
+
   const submit = (e) => {
     e.preventDefault();
+    console.log(name, lastName, numberOfSeats, hour);
+
+    setBookData({
+      ...bookData,
+      firstName: name,
+      lastName,
+      numberOfSeats,
+      hour,
+    });
     console.log(bookData);
+  };
+  const validation = () => {
+    setIsError(false);
+    try {
+      validationBook(name, lastName);
+    } catch (e) {
+      setIsError(true);
+      setError(e.message);
+    }
   };
   return (
     <Modal>
@@ -18,15 +46,37 @@ const TimeForm = () => {
         <label htmlFor="firstName">
           First Name <span className="star">*</span>
         </label>
-        <input type="text" id="firstName" />
+        <input
+          type="text"
+          id="firstName"
+          onKeyUp={validation}
+          onKeyDown={validation}
+          onChange={(e) => {
+            setName(e.target.value);
+            validation();
+          }}
+        />
         <label htmlFor="lastName">
           Last Name <span className="star">*</span>
         </label>
-        <input type="text" id="lastName" />
+        <input
+          type="text"
+          id="lastName"
+          onKeyUp={validation}
+          onKeyDown={validation}
+          onChange={(e) => {
+            setLastName(e.target.value);
+            validation();
+          }}
+        />
         <label htmlFor="numberOfSeats">
           Number Of Seats <span className="star">*</span>
         </label>
-        <select name="numberOfSeats" id="numberOfSeats">
+        <select
+          name="numberOfSeats"
+          id="numberOfSeats"
+          onChange={(e) => setNumberOfSeats(e.target.value)}
+        >
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -40,7 +90,7 @@ const TimeForm = () => {
         <label htmlFor="hour">
           Hour <span className="star">*</span>
         </label>
-        <select name="hour" id="hour">
+        <select name="hour" id="hour" onChange={(e) => setHour(e.target.value)}>
           <option value="10:00">10:00</option>
           <option value="11:00">11:00</option>
           <option value="12:00">12:00</option>
@@ -53,7 +103,12 @@ const TimeForm = () => {
           <option value="19:00">19:00</option>
           <option value="20:00">20:00</option>
         </select>
-        <button className="button button-primary">Book a table</button>
+        {isError ? <p className="error-message">{error}</p> : null}
+        {!isError ? (
+          <button className="button button-primary">Book a table</button>
+        ) : (
+          <button className="button button-disabled">Book a table</button>
+        )}
       </form>
     </Modal>
   );

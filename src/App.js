@@ -4,11 +4,22 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Page from "./Page";
 import UserContext from "./context/UserContext";
+import BookContext from "./context/BookContext";
 
 function App() {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
+  });
+  const [bookData, setBookData] = useState({
+    dateDay: undefined,
+    dateMonth: undefined,
+    dateYear: undefined,
+    email: undefined,
+    firstName: undefined,
+    lastName: undefined,
+    numberOfSeats: undefined,
+    hour: undefined,
   });
 
   useEffect(() => {
@@ -48,9 +59,11 @@ function App() {
     <>
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
-          <Navbar />
-          <Page />
-          <Footer />
+          <BookContext.Provider value={{ bookData, setBookData }}>
+            <Navbar />
+            <Page />
+            <Footer />
+          </BookContext.Provider>
         </UserContext.Provider>
       </BrowserRouter>
     </>

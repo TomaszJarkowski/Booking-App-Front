@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import TimeForm from "./TimeForm";
 import { Route, Switch } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import BookContext from "../../context/BookContext";
+import UserContext from "../../context/UserContext";
 
 const dataNamesDays = [
   { shortCut: "Sun", name: "Sunday" },
@@ -15,11 +17,13 @@ const dataNamesDays = [
 
 const Calendary = () => {
   const [availableDates, setAvailableDates] = useState([]);
+  const { bookData, setBookData } = useContext(BookContext);
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
     const arr = [];
 
-    for (let i = 0; i < 16; i++) {
+    for (let i = 1; i < 17; i++) {
       const fortnightAway = new Date(
         Date.now() + 1000 * 60 * 60 * 24 * (1 * i)
       ).toString();
@@ -40,10 +44,19 @@ const Calendary = () => {
         return <h2>{el.name}</h2>;
       }
     });
-
+  const handleClick = (date) => {
+    console.log(bookData);
+    setBookData({
+      ...bookData,
+      dateDay: date.day,
+      dateMonth: date.month,
+      dateYear: date.year,
+      email: userData.user.email,
+    });
+  };
   const Tiles = () =>
     availableDates.map((date) => (
-      <NavLink to="/booking/form">
+      <NavLink to="/booking/form" onClick={() => handleClick(date)}>
         <div className="tile">
           <h1>{date.day}</h1>
           <NameDay name={date.name} />

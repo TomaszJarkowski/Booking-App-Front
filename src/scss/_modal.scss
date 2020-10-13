@@ -22,23 +22,65 @@
 
         @media(min-width: 650px) {
             width: 600px;
-
         }
 
     }
 
     .modal__closeIcon {
         position: absolute;
-        right: 10px;
-        top: 5px;
+        right: 20px;
+        top: 10px;
         cursor: pointer;
-        font-size: 20px;
-        color: black;
+        font-size: 32px;
+        color: #444;
         font-weight: bold;
         transition: all .3s linear;
 
         &:hover {
             transform: scale(1.3);
+        }
+    }
+
+    .form-time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            font-size: 32px;
+        }
+
+        h4 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        input {
+            font-size: 22px;
+            padding: 3px;
+            margin: 5px 0;
+        }
+
+        #numberOfSeats {
+            text-align: center;
+        }
+
+        label {
+            font-size: 22px;
+            margin: 8px 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        select {
+            font-size: 22px;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        button {
+            margin: 20px 0;
         }
     }
 }

@@ -6,7 +6,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-  const [displayName, setDisplayName] = useState("");
+  const [userName, setUserName] = useState("");
   const [isError, setIsError] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ const Register = () => {
   const validation = () => {
     setIsError(false);
     try {
-      validationRegister(email, password, passwordCheck);
+      validationRegister(email, userName, password, passwordCheck);
     } catch (e) {
       setError(e.message);
       setIsError(true);
@@ -50,7 +50,7 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    const newUser = { email, password, passwordCheck, displayName };
+    const newUser = { email, userName, password, passwordCheck };
 
     if (!isError && email && password && passwordCheck) {
       await postRegister(newUser);
@@ -75,11 +75,17 @@ const Register = () => {
                 validation();
               }}
             />
-            <label htmlFor="register-display-name">Name</label>
+            <label htmlFor="register-display-name">
+              Username <span className="star">*</span>
+            </label>
             <input
               id="register-display-name"
               type="text"
-              onChange={(e) => setDisplayName(e.target.value)}
+              onKeyUp={validation}
+              onChange={(e) => {
+                setUserName(e.target.value);
+                validation();
+              }}
             />
 
             <label htmlFor="register-password">

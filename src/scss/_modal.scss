@@ -41,6 +41,21 @@
         }
     }
 
+    .accept-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            padding: 20px;
+        }
+
+        button {
+            margin-bottom: 40px;
+        }
+    }
+
     .form-time {
         display: flex;
         justify-content: center;

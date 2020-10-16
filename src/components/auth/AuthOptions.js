@@ -23,7 +23,7 @@ const AuthOptions = () => {
         <>
           <div className="user" onClick={dashboard}>
             <img src={userSVG} alt="" />
-            <p>{userData.user.displayName}</p>
+            <p>{userData.user.userName}</p>
           </div>
           <button onClick={logout} className="button-logout">
             Log out

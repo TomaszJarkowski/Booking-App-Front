@@ -37,6 +37,11 @@ button {
     font-weight: bold;
 }
 
+.success-message {
+    color: greenyellow;
+    font-weight: bold;
+}
+
 .button-primary {
     background: $primary-color;
     border: 3px solid $primary-color;
@@ -44,6 +49,12 @@ button {
 
 .button-secondary {
     border: 3px solid $primary-color;
+}
+
+.button-danger {
+    border: 3px solid rgb(219, 46, 46);
+    background-color: rgb(228, 82, 82);
+    color: white;
 }
 
 .button-disabled {

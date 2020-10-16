@@ -1,0 +1,31 @@
+.success {
+    background-color: rgb(58, 196, 58);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 10px;
+
+    h1 {
+        font-size: 50px;
+        letter-spacing: 3px;
+        margin: 0;
+    }
+
+    h2 {
+        margin: 20px;
+    }
+
+    .button-primary {
+        color: #444;
+        margin: 0;
+    }
+}

@@ -1,0 +1,28 @@
+.dashboard {
+
+    .dashboard__myData {
+        .buttons {
+            display: flex;
+        }
+    }
+
+    .dashboard__books {
+        .book {
+            max-width: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+            border: 2px solid #FEE996;
+            border-bottom: 8px solid #FEE996;
+            border-radius: 10px;
+            margin: 10px;
+            font-weight: bold;
+
+            i {
+                cursor: pointer;
+                color: #ff0099;
+            }
+        }
+    }
+}

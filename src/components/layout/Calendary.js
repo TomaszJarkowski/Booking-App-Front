@@ -23,20 +23,22 @@ const Calendary = () => {
   useEffect(() => {
     const arr = [];
 
-    for (let i = 1; i < 17; i++) {
-      const fortnightAway = new Date(
-        Date.now() + 1000 * 60 * 60 * 24 * (1 * i)
-      ).toString();
+    for (let i = 1; i < 18; i++) {
+      if (i !== 11) {
+        const fortnightAway = new Date(
+          Date.now() + 1000 * 60 * 60 * 24 * (1 * i)
+        ).toString();
 
-      arr.push({
-        year: fortnightAway.slice(11, 16),
-        month: fortnightAway.slice(4, 7),
-        day: fortnightAway.slice(8, 10),
-        name: fortnightAway.slice(0, 3),
-      });
-      console.log(arr);
+        arr.push({
+          year: fortnightAway.slice(11, 15),
+          month: fortnightAway.slice(4, 7),
+          day: fortnightAway.slice(8, 10),
+          name: fortnightAway.slice(0, 3),
+        });
+        console.log(arr);
+      }
+      setAvailableDates(arr);
     }
-    setAvailableDates(arr);
   }, []);
   const NameDay = ({ name }) =>
     dataNamesDays.map((el) => {
@@ -45,9 +47,10 @@ const Calendary = () => {
       }
     });
   const handleClick = (date) => {
-    console.log(bookData);
+    console.log(userData.user);
     setBookData({
       ...bookData,
+      userId: userData.user.id,
       dateDay: date.day,
       dateMonth: date.month,
       dateYear: date.year,

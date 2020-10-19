@@ -1,0 +1,63 @@
+.page-booking {
+    h1 {
+        margin: 10px;
+        font-size: 40px;
+
+        @media (min-width: 900px) {
+            margin: 20px;
+        }
+    }
+
+    h2 {
+        margin: 10px;
+
+        @media (min-width: 900px) {
+            margin: 20px;
+        }
+    }
+
+    .board {
+        width: 100%;
+        max-width: 900px;
+        margin: 20px auto;
+        box-shadow: 0 0 2px 2px gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 15px;
+
+        a {
+            width: 200px;
+            margin: 10px;
+        }
+
+        .tile {
+            cursor: pointer;
+            color: #444;
+            box-shadow: 0 0 4px 1px gray;
+            border-radius: 15px;
+            text-align: center;
+            transition: all linear .2s;
+            padding: 10px 0;
+
+            h1 {
+                font-size: 28px;
+                margin: 10px;
+            }
+
+            h2 {
+                margin: 10px;
+            }
+
+            h3 {
+                margin: 10px;
+            }
+
+            &:hover {
+                background-color: rgb(158, 156, 156);
+                transform: scale(1.05)
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@ import BookContext from "../../context/BookContext";
 import Modal from "./Modal";
 import validationBook from "../../validation/validationBook";
 import Success from "./Success";
-
+import Spinner from "./Spinner";
 const TimeForm = () => {
   const { bookData } = useContext(BookContext);
   const [name, setName] = useState("");
@@ -13,8 +13,9 @@ const TimeForm = () => {
   const [isError, setIsError] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const postData = () => {
+    setLoading(true);
     fetch("http://localhost:3000/book", {
       method: "POST",
       body: JSON.stringify({
@@ -30,6 +31,7 @@ const TimeForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         if (data.error) {
           setError(data.error);
           setIsError(true);
@@ -38,6 +40,7 @@ const TimeForm = () => {
         }
       })
       .catch((error) => {
+        setLoading(false);
         setError("Failed to fetch");
         setIsError(true);
       });
@@ -129,6 +132,7 @@ const TimeForm = () => {
             <option value="19:00">19:00</option>
             <option value="20:00">20:00</option>
           </select>
+          {loading ? <Spinner /> : null}
           {isError ? <p className="error-message">{error}</p> : null}
           {!isError ? (
             <button className="button button-primary">Book a table</button>

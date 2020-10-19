@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import validationLogin from "../../validation/validationLogin";
-
+import Spinner from "../layout/Spinner";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,7 +95,7 @@ const Login = () => {
                   ) : (
                     <button className="button button-disabled">Log in</button>
                   )}
-                  {loading ? <p>Loading</p> : null}
+                  {loading ? <Spinner /> : null}
                   {isError ? <p className="error-message">{error}</p> : null}
                 </form>
               </div>

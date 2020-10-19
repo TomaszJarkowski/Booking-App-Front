@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
 import Page from "./Page";
 import UserContext from "./context/UserContext";
 import BookContext from "./context/BookContext";
-
+import Spinner from "./components/layout/Spinner";
 function App() {
   const [userData, setUserData] = useState({
     token: undefined,
@@ -22,9 +21,11 @@ function App() {
     numberOfSeats: undefined,
     hour: undefined,
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkLoggedIn = async () => {
+      setLoading(true);
       let token = localStorage.getItem("auth-token");
 
       if (token === null) {
@@ -50,10 +51,9 @@ function App() {
           user: userJson,
         });
       }
+      setLoading(false);
     };
-
     checkLoggedIn();
-    console.log(userData);
   }, []);
 
   return (
@@ -61,9 +61,14 @@ function App() {
       <BrowserRouter>
         <UserContext.Provider value={{ userData, setUserData }}>
           <BookContext.Provider value={{ bookData, setBookData }}>
-            <Navbar />
-            <Page />
-            <Footer />
+            {loading ? (
+              <Spinner />
+            ) : (
+              <>
+                <Navbar />
+                <Page />
+              </>
+            )}
           </BookContext.Provider>
         </UserContext.Provider>
       </BrowserRouter>

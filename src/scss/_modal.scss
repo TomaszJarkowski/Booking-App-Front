@@ -16,14 +16,10 @@
         margin: auto;
         text-align: center;
         box-shadow: 0 0 7px 2px white;
-        width: 300px;
+        width: 100%;
         border-radius: 10px;
         font-size: 16px;
-
-        @media(min-width: 650px) {
-            width: 600px;
-        }
-
+        max-width: 600px;
     }
 
     .modal__closeIcon {
@@ -48,11 +44,41 @@
         flex-direction: column;
 
         h2 {
+            font-size: 32px;
             padding: 20px;
         }
 
         button {
             margin-bottom: 40px;
+        }
+    }
+
+    .change-username {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            font-size: 32px;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        input {
+            font-size: 22px;
+            padding: 3px;
+            margin: 5px 0;
+        }
+
+        button {
+            margin: 30px;
         }
     }
 
@@ -64,6 +90,7 @@
 
         h2 {
             font-size: 32px;
+            padding: 20px;
         }
 
         h4 {

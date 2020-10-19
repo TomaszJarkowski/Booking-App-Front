@@ -22,7 +22,6 @@ const Calendary = () => {
 
   useEffect(() => {
     const arr = [];
-
     for (let i = 1; i < 18; i++) {
       if (i !== 11) {
         const fortnightAway = new Date(
@@ -35,7 +34,6 @@ const Calendary = () => {
           day: fortnightAway.slice(8, 10),
           name: fortnightAway.slice(0, 3),
         });
-        console.log(arr);
       }
       setAvailableDates(arr);
     }
@@ -47,7 +45,6 @@ const Calendary = () => {
       }
     });
   const handleClick = (date) => {
-    console.log(userData.user);
     setBookData({
       ...bookData,
       userId: userData.user.id,

@@ -45,9 +45,11 @@ button {
 .button-primary {
     background: $primary-color;
     border: 3px solid $primary-color;
+
 }
 
 .button-secondary {
+    background: white;
     border: 3px solid $primary-color;
 }
 

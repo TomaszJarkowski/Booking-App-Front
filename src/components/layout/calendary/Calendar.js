@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import TimeForm from "./TimeForm";
+import HourForm from "./HourForm";
 import { Route, Switch } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import BookContext from "../../context/BookContext";
-import UserContext from "../../context/UserContext";
+import BookContext from "../../../context/BookContext";
+import UserContext from "../../../context/UserContext";
 
 const dataNamesDays = [
   { shortCut: "Sun", name: "Sunday" },
@@ -15,7 +15,7 @@ const dataNamesDays = [
   { shortCut: "Sat", name: "Saturday" },
 ];
 
-const Calendary = () => {
+const Calendar = () => {
   const [availableDates, setAvailableDates] = useState([]);
   const { bookData, setBookData } = useContext(BookContext);
   const { userData } = useContext(UserContext);
@@ -46,6 +46,7 @@ const Calendary = () => {
       }
       return null;
     });
+
   const handleClick = (date) => {
     setBookData({
       ...bookData,
@@ -56,6 +57,7 @@ const Calendary = () => {
       email: userData.user.email,
     });
   };
+
   const Tiles = () =>
     availableDates.map((date) => (
       <NavLink
@@ -71,6 +73,7 @@ const Calendary = () => {
         </div>
       </NavLink>
     ));
+
   return (
     <>
       <div className="board">
@@ -78,11 +81,11 @@ const Calendary = () => {
       </div>
       <Switch>
         <Route path="/booking/form">
-          <TimeForm />
+          <HourForm />
         </Route>
       </Switch>
     </>
   );
 };
 
-export default Calendary;
+export default Calendar;

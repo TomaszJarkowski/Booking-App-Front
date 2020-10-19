@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import validationRegister from "../../validation/validationRegister";
 import Spinner from "../layout/Spinner";
 import ErrorMessage from "../layout/ErrorMessage";
-import ButtonPrimary from "../layout/ButtonPrimary";
-import ButtonDisabled from "../layout/ButtonDisabled";
+import ButtonPrimary from "../layout/buttons/ButtonPrimary";
+import ButtonDisabled from "../layout/buttons/ButtonDisabled";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -5,7 +5,8 @@ import Page from "./Page";
 import UserContext from "./context/UserContext";
 import BookContext from "./context/BookContext";
 import Spinner from "./components/layout/Spinner";
-function App() {
+
+const App = () => {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -74,6 +75,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;

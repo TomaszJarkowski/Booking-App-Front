@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import svg from "../../svg/undraw_Booking_re_gw4j.svg";
-import ButtonPrimary from "../layout/ButtonPrimary";
+import ButtonPrimary from "../layout/buttons/ButtonPrimary";
 const Home = () => {
   const history = useHistory();
   const handleClick = () => history.push("/booking");

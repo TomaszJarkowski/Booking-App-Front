@@ -4,10 +4,12 @@ import { useHistory } from "react-router-dom";
 
 const Modal = ({ children }) => {
   const history = useHistory();
+
   const handleClose = (e) => {
     e.stopPropagation();
     history.goBack();
   };
+
   return createPortal(
     <div className="modal__wrapper" onClick={handleClose}>
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>

@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 const actualDate = new Date().getTime();
 const Books = (props) => {
-  const cloneSort = [...props.books];
+  const cloneArr = [...props.books];
 
-  cloneSort
+  cloneArr
     .sort(function (a, b) {
       return (
         new Date(`${b.dateDay}-${b.dateMonth}-${b.dateYear}-${b.hour}`) -
@@ -14,7 +14,7 @@ const Books = (props) => {
     })
     .reverse();
 
-  return cloneSort.map((el) => {
+  return cloneArr.map((el) => {
     const convertDate = new Date(
       `${el.dateDay}-${el.dateMonth}-${el.dateYear}-${el.hour}`
     ).getTime();

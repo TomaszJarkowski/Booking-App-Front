@@ -1,21 +1,21 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import Accept from "../layout/Accept";
+import Accept from "../layout/dashboard/Accept";
 import { useHistory } from "react-router-dom";
-import Books from "../layout/Books";
-import ZeroBooks from "../layout/ZeroBooks";
-import DeleteAccount from "../layout/DeleteAccount";
-import ChangeUsername from "../layout/ChangeUsername";
-import ChangePassword from "../layout/ChangePassword";
+import Books from "../layout/dashboard/Books";
+import ZeroBooks from "../layout/dashboard/ZeroBooks";
+import DeleteAccount from "../layout/dashboard/DeleteAccount";
+import ChangeUsername from "../layout/dashboard/ChangeUsername";
+import ChangePassword from "../layout/dashboard/ChangePassword";
 import Spinner from "../layout/Spinner";
+import ButtonDanger from "../layout/buttons/ButtonDanger";
 const Dashboard = () => {
   const [books, setBooks] = useState([]);
-  const history = useHistory();
-  const { userData } = useContext(UserContext);
-
   const [elToRemove, setElToRemove] = useState({});
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
     const downloadData = async () => {
@@ -93,12 +93,11 @@ const Dashboard = () => {
                   >
                     Change password
                   </button>
-                  <button
-                    className="button button-danger"
+                  <ButtonDanger
                     onClick={() => history.push("/dashboard/deleteAccount")}
                   >
                     Delete account
-                  </button>
+                  </ButtonDanger>
                 </div>
               </div>
               <div className="dashboard__books">

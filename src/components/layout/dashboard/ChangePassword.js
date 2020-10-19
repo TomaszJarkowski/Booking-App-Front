@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import Modal from "./Modal";
-import UserContext from "../../context/UserContext";
-import validationChangePassword from "../../validation/validationChangePassword";
-import Spinner from "./Spinner";
-import ErrorMessage from "./ErrorMessage";
-import ButtonPrimary from "./ButtonPrimary";
-import ButtonDisabled from "./ButtonDisabled";
+import Modal from "../Modal";
+import UserContext from "../../../context/UserContext";
+import validationChangePassword from "../../../validation/validationChangePassword";
+import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonDisabled from "../buttons/ButtonDisabled";
 const ChangePassword = () => {
   const { userData } = useContext(UserContext);
   const [oldPassword, setOldPassword] = useState("");
@@ -55,6 +55,7 @@ const ChangePassword = () => {
         setIsError(true);
       });
   };
+
   return (
     <Modal>
       <form className="change-username" onSubmit={submit}>

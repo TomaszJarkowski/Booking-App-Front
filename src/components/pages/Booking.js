@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import Calendary from "../layout/Calendary";
+import Calendar from "../layout/calendary/Calendar";
 const Booking = () => {
   const { userData } = useContext(UserContext);
   const BookingPage = () => (
@@ -9,7 +9,7 @@ const Booking = () => {
       <div className="container">
         <h1>Booking</h1>
         <h2>Select the day and hour and we will reserve a table for you ❤</h2>
-        <Calendary />
+        <Calendar />
       </div>
     </div>
   );

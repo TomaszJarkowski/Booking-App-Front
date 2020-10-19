@@ -1,11 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonPrimary from "../buttons/ButtonPrimary";
 const Success = () => {
   const history = useHistory();
+
   const handleClick = (e) => {
     history.push("/");
   };
+
   return (
     <div className="success">
       <h1>Congratulations!</h1>

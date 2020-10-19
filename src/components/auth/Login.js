@@ -5,8 +5,8 @@ import UserContext from "../../context/UserContext";
 import validationLogin from "../../validation/validationLogin";
 import Spinner from "../layout/Spinner";
 import ErrorMessage from "../layout/ErrorMessage";
-import ButtonPrimary from "../layout/ButtonPrimary";
-import ButtonDisabled from "../layout/ButtonDisabled";
+import ButtonPrimary from "../layout/buttons/ButtonPrimary";
+import ButtonDisabled from "../layout/buttons/ButtonDisabled";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

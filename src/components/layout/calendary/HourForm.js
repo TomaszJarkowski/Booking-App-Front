@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import BookContext from "../../context/BookContext";
-import Modal from "./Modal";
-import validationBook from "../../validation/validationBook";
+import BookContext from "../../../context/BookContext";
+import Modal from "../Modal";
+import validationBook from "../../../validation/validationBook";
 import Success from "./Success";
-import Spinner from "./Spinner";
-import ErrorMessage from "./ErrorMessage";
-import ButtonPrimary from "./ButtonPrimary";
-import ButtonDisabled from "./ButtonDisabled";
-const TimeForm = () => {
+import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonDisabled from "../buttons/ButtonDisabled";
+const HourForm = () => {
   const { bookData } = useContext(BookContext);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,6 +17,7 @@ const TimeForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const postData = () => {
     setLoading(true);
     fetch("http://localhost:3000/book", {
@@ -48,10 +49,12 @@ const TimeForm = () => {
         setIsError(true);
       });
   };
+
   const submit = (e) => {
     e.preventDefault();
     postData();
   };
+
   const validation = () => {
     setIsError(false);
     try {
@@ -61,6 +64,7 @@ const TimeForm = () => {
       setError(e.message);
     }
   };
+
   return (
     <Modal>
       <form className="form-time" onSubmit={submit}>
@@ -148,4 +152,4 @@ const TimeForm = () => {
   );
 };
 
-export default TimeForm;
+export default HourForm;

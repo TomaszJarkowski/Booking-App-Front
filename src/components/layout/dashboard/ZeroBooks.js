@@ -1,12 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonPrimary from "../buttons/ButtonPrimary";
 
 const ZeroBooks = () => {
   const history = useHistory();
+
   const handleClick = () => {
     history.push("/booking");
   };
+
   return (
     <div className="zero-books">
       <h2>

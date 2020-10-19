@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import Modal from "./Modal";
-import validationChangeUsername from "../../validation/validationChangeUsername";
-import UserContext from "../../context/UserContext";
-import Spinner from "./Spinner";
-import ErrorMessage from "./ErrorMessage";
-import ButtonPrimary from "./ButtonPrimary";
-import ButtonDisabled from "./ButtonDisabled";
+import Modal from "../Modal";
+import validationChangeUsername from "../../../validation/validationChangeUsername";
+import UserContext from "../../../context/UserContext";
+import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
+import ButtonPrimary from "../buttons/ButtonPrimary";
+import ButtonDisabled from "../buttons/ButtonDisabled";
 
 const ChangeUsername = () => {
   const { userData } = useContext(UserContext);
@@ -23,6 +23,7 @@ const ChangeUsername = () => {
       setError(e.message);
     }
   };
+
   const submit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -53,6 +54,7 @@ const ChangeUsername = () => {
         setIsError(true);
       });
   };
+
   return (
     <Modal>
       <form className="change-username" onSubmit={submit}>

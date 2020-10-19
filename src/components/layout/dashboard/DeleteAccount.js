@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
-import Spinner from "./Spinner";
-import ErrorMessage from "./ErrorMessage";
-import ButtonDisabled from "./ButtonDisabled";
+import Modal from "../Modal";
+import Spinner from "../Spinner";
+import ErrorMessage from "../ErrorMessage";
+import ButtonDisabled from "../buttons/ButtonDisabled";
+import ButtonDanger from "../buttons/ButtonDanger";
 const DeleteAccount = (props) => {
   const [confirmation, setConfirmation] = useState("");
   const [isError, setIsError] = useState(true);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const text = "agree";
+
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -34,6 +35,7 @@ const DeleteAccount = (props) => {
         setError(e.message);
       });
   };
+
   const validation = () => {
     if (confirmation === text) {
       setIsError(false);
@@ -41,6 +43,7 @@ const DeleteAccount = (props) => {
       setIsError(true);
     }
   };
+
   return (
     <Modal>
       <form onSubmit={submit} className="delete-account">
@@ -69,9 +72,9 @@ const DeleteAccount = (props) => {
             I understand the consequences, delete this account
           </ButtonDisabled>
         ) : (
-          <button className="button button-danger" type="submit">
+          <ButtonDanger>
             I understand the consequences, delete this account
-          </button>
+          </ButtonDanger>
         )}
       </form>
     </Modal>

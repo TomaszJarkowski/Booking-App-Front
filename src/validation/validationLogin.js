@@ -14,11 +14,9 @@ const validationLogin = (email, password) => {
   if (!password.match(alphanumeric)) {
     throw new Error("Password must contain only numbers and letters");
   }
-
   if (password.length < 7) {
     throw new Error("The minimum password length is: 7");
   }
-  return false;
 };
 
 export default validationLogin;

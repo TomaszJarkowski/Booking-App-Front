@@ -3,7 +3,9 @@ import Modal from "./Modal";
 import UserContext from "../../context/UserContext";
 import validationChangePassword from "../../validation/validationChangePassword";
 import Spinner from "./Spinner";
-
+import ErrorMessage from "./ErrorMessage";
+import ButtonPrimary from "./ButtonPrimary";
+import ButtonDisabled from "./ButtonDisabled";
 const ChangePassword = () => {
   const { userData } = useContext(UserContext);
   const [oldPassword, setOldPassword] = useState("");
@@ -23,7 +25,8 @@ const ChangePassword = () => {
     }
   };
 
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
     setLoading(true);
     fetch("http://localhost:3000/users/changePassword", {
       method: "PUT",
@@ -54,7 +57,7 @@ const ChangePassword = () => {
   };
   return (
     <Modal>
-      <from className="change-username">
+      <form className="change-username" onSubmit={submit}>
         <h2>Change password</h2>
         <label>Old password</label>
         <input
@@ -84,19 +87,13 @@ const ChangePassword = () => {
           }}
         />
         {loading ? <Spinner /> : null}
-        {isError ? <p className="error-message">{error}</p> : null}
+        {isError ? <ErrorMessage error={error} /> : null}
         {isError ? (
-          <button className="button button-disabled">Change username</button>
+          <ButtonDisabled>Change username</ButtonDisabled>
         ) : (
-          <button
-            type="submit"
-            onClick={submit}
-            className="button button-primary"
-          >
-            Change password
-          </button>
+          <ButtonPrimary>Change password</ButtonPrimary>
         )}
-      </from>
+      </form>
     </Modal>
   );
 };

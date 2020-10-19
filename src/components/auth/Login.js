@@ -1,9 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import validationLogin from "../../validation/validationLogin";
 import Spinner from "../layout/Spinner";
+import ErrorMessage from "../layout/ErrorMessage";
+import ButtonPrimary from "../layout/ButtonPrimary";
+import ButtonDisabled from "../layout/ButtonDisabled";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -90,13 +93,13 @@ const Login = () => {
                       validation();
                     }}
                   />
-                  {!isError ? (
-                    <button className="button button-primary">Log in</button>
-                  ) : (
-                    <button className="button button-disabled">Log in</button>
-                  )}
                   {loading ? <Spinner /> : null}
-                  {isError ? <p className="error-message">{error}</p> : null}
+                  {isError ? <ErrorMessage error={error} /> : null}
+                  {isError ? (
+                    <ButtonDisabled>Log in</ButtonDisabled>
+                  ) : (
+                    <ButtonPrimary>Log in</ButtonPrimary>
+                  )}
                 </form>
               </div>
             </div>

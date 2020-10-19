@@ -14,7 +14,6 @@ const validationChangePassword = (
   if (!confirmNewPassword) {
     throw new Error("Please enter confirm new password");
   }
-
   if (!oldPassword.match(alphanumeric)) {
     throw new Error("Old password must contain only numbers and letters");
   }
@@ -26,7 +25,6 @@ const validationChangePassword = (
       "Confirm new password must contain only numbers and letters"
     );
   }
-
   if (oldPassword.length < 7) {
     throw new Error("The minimum old password length is: 7");
   }
@@ -36,13 +34,11 @@ const validationChangePassword = (
   if (confirmNewPassword.length < 7) {
     throw new Error("The minimum confirm new password length is: 7");
   }
-
   if (newPassword !== confirmNewPassword) {
     throw new Error(
       "New Password must be the same as the confirm new password"
     );
   }
-  return false;
 };
 
 export default validationChangePassword;

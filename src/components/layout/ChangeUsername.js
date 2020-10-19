@@ -3,6 +3,9 @@ import Modal from "./Modal";
 import validationChangeUsername from "../../validation/validationChangeUsername";
 import UserContext from "../../context/UserContext";
 import Spinner from "./Spinner";
+import ErrorMessage from "./ErrorMessage";
+import ButtonPrimary from "./ButtonPrimary";
+import ButtonDisabled from "./ButtonDisabled";
 
 const ChangeUsername = () => {
   const { userData } = useContext(UserContext);
@@ -20,7 +23,8 @@ const ChangeUsername = () => {
       setError(e.message);
     }
   };
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
     setLoading(true);
     fetch("http://localhost:3000/users/changeUsername", {
       method: "PUT",
@@ -51,7 +55,7 @@ const ChangeUsername = () => {
   };
   return (
     <Modal>
-      <from className="change-username">
+      <form className="change-username" onSubmit={submit}>
         <h2>Change username</h2>
         <label>New Username</label>
         <input
@@ -66,19 +70,13 @@ const ChangeUsername = () => {
           }}
         />
         {loading ? <Spinner /> : null}
-        {isError ? <div className="error-message">{error}</div> : null}
+        {isError ? <ErrorMessage error={error} /> : null}
         {isError ? (
-          <button className="button button-disabled">Change username</button>
+          <ButtonDisabled>Change username</ButtonDisabled>
         ) : (
-          <button
-            type="submit"
-            onClick={submit}
-            className="button button-primary"
-          >
-            Change username
-          </button>
+          <ButtonPrimary>Change username</ButtonPrimary>
         )}
-      </from>
+      </form>
     </Modal>
   );
 };

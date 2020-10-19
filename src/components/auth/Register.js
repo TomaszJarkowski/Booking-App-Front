@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import validationRegister from "../../validation/validationRegister";
 import Spinner from "../layout/Spinner";
+import ErrorMessage from "../layout/ErrorMessage";
+import ButtonPrimary from "../layout/ButtonPrimary";
+import ButtonDisabled from "../layout/ButtonDisabled";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -112,13 +115,13 @@ const Register = () => {
                 validation();
               }}
             />
-            {!isError ? (
-              <button className="button button-primary">Register</button>
-            ) : (
-              <button className="button button-disabled">Register</button>
-            )}
             {loading ? <Spinner /> : null}
-            {isError ? <p className="error-message">{error}</p> : null}
+            {isError ? <ErrorMessage error={error} /> : null}
+            {isError ? (
+              <ButtonDisabled>Register</ButtonDisabled>
+            ) : (
+              <ButtonPrimary>Register</ButtonPrimary>
+            )}
           </form>
         </div>
       </div>

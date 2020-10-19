@@ -1,5 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import ButtonPrimary from "./ButtonPrimary";
+
 const ZeroBooks = () => {
   const history = useHistory();
   const handleClick = () => {
@@ -13,9 +15,7 @@ const ZeroBooks = () => {
           😢
         </span>
       </h2>
-      <button className="button button-primary" onClick={handleClick}>
-        Booking
-      </button>
+      <ButtonPrimary onClick={handleClick}>Booking</ButtonPrimary>
     </div>
   );
 };

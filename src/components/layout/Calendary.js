@@ -38,11 +38,13 @@ const Calendary = () => {
       setAvailableDates(arr);
     }
   }, []);
+
   const NameDay = ({ name }) =>
     dataNamesDays.map((el) => {
       if (el.shortCut === name) {
-        return <h2>{el.name}</h2>;
+        return <h2 key={Math.floor(Math.random())}>{el.name}</h2>;
       }
+      return null;
     });
   const handleClick = (date) => {
     setBookData({
@@ -56,7 +58,11 @@ const Calendary = () => {
   };
   const Tiles = () =>
     availableDates.map((date) => (
-      <NavLink to="/booking/form" onClick={() => handleClick(date)}>
+      <NavLink
+        to="/booking/form"
+        key={`${date.day}-${date.month}-${date.year}`}
+        onClick={() => handleClick(date)}
+      >
         <div className="tile">
           <h1>{date.day}</h1>
           <NameDay name={date.name} />

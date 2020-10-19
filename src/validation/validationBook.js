@@ -13,7 +13,6 @@ const validationBook = (name, lastName) => {
   if (lastName.length < 3) {
     throw new Error("The minimum last name length is: 3");
   }
-  return false;
 };
 
 export default validationBook;

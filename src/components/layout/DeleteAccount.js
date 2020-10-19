@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import Spinner from "./Spinner";
-
+import ErrorMessage from "./ErrorMessage";
+import ButtonDisabled from "./ButtonDisabled";
 const DeleteAccount = (props) => {
   const [confirmation, setConfirmation] = useState("");
   const [isError, setIsError] = useState(true);
@@ -62,11 +63,11 @@ const DeleteAccount = (props) => {
           }}
         />
         {loading ? <Spinner /> : null}
-        {isError ? <p className="error-message">{error}</p> : null}
+        {isError ? <ErrorMessage error={error} /> : null}
         {isError ? (
-          <button className="button button-disabled">
+          <ButtonDisabled>
             I understand the consequences, delete this account
-          </button>
+          </ButtonDisabled>
         ) : (
           <button className="button button-danger" type="submit">
             I understand the consequences, delete this account

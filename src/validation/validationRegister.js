@@ -23,15 +23,12 @@ const validationRegister = (email, userName, password, passwordCheck) => {
   if (!password.match(alphanumeric)) {
     throw new Error("Password must contain only numbers and letters");
   }
-
   if (password.length < 7) {
     throw new Error("The minimum password length is: 7");
   }
-
   if (password !== passwordCheck) {
     throw new Error("Password must be the same as the veryfy password");
   }
-  return false;
 };
 
 export default validationRegister;

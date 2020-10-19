@@ -30,6 +30,7 @@ const Books = (props) => {
             ? { borderBottom: "solid 8px rgb(219, 46, 46)" }
             : null
         }
+        key={Math.random()}
       >
         <h3 className="date">
           {el.dateDay}-{el.dateMonth}-{el.dateYear}

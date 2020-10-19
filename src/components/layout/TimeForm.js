@@ -4,6 +4,9 @@ import Modal from "./Modal";
 import validationBook from "../../validation/validationBook";
 import Success from "./Success";
 import Spinner from "./Spinner";
+import ErrorMessage from "./ErrorMessage";
+import ButtonPrimary from "./ButtonPrimary";
+import ButtonDisabled from "./ButtonDisabled";
 const TimeForm = () => {
   const { bookData } = useContext(BookContext);
   const [name, setName] = useState("");
@@ -133,11 +136,11 @@ const TimeForm = () => {
             <option value="20:00">20:00</option>
           </select>
           {loading ? <Spinner /> : null}
-          {isError ? <p className="error-message">{error}</p> : null}
-          {!isError ? (
-            <button className="button button-primary">Book a table</button>
+          {isError ? <ErrorMessage error={error} /> : null}
+          {isError ? (
+            <ButtonDisabled>Book a table</ButtonDisabled>
           ) : (
-            <button className="button button-disabled">Book a table</button>
+            <ButtonPrimary>Book a table</ButtonPrimary>
           )}
         </>
       </form>

@@ -26,7 +26,6 @@ const Dashboard = () => {
         headers: { "Content-Type": "application/json" },
       });
       const bookResJson = await bookRes.json();
-      console.log(bookResJson);
       if (bookResJson) {
         setBooks(bookResJson);
       }
@@ -35,7 +34,7 @@ const Dashboard = () => {
     if (userData.user) {
       downloadData();
     }
-  }, []);
+  }, [userData.user]);
 
   const removeBook = () => {
     fetch("http://localhost:3000/book", {
@@ -49,13 +48,11 @@ const Dashboard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        console.log(books);
         setBooks(books.filter((el) => el._id !== data._id));
         history.push("/dashboard");
       })
       .catch((error) => {
-        console.log(error);
+        alert(error.message);
       });
   };
 

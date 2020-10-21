@@ -28,13 +28,16 @@ const Register = () => {
   const postRegister = async (newUser) => {
     setLoading(true);
     try {
-      const register = await fetch("http://localhost:3000/users/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      });
+      const register = await fetch(
+        "https://booking-app-back.herokuapp.com/users/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        }
+      );
       const registerResponse = await register.json();
       setLoading(false);
       if (registerResponse.error) {

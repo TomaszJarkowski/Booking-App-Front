@@ -27,7 +27,7 @@ const ChangeUsername = () => {
   const submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch("http://localhost:3000/users/changeUsername", {
+    fetch("https://booking-app-back.herokuapp.com/users/changeUsername", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

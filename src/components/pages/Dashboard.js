@@ -20,11 +20,14 @@ const Dashboard = () => {
   useEffect(() => {
     const downloadData = async () => {
       setLoading(true);
-      const bookRes = await fetch("http://localhost:3000/book/get", {
-        method: "POST",
-        body: JSON.stringify({ userId: userData.user.id }),
-        headers: { "Content-Type": "application/json" },
-      });
+      const bookRes = await fetch(
+        "https://booking-app-back.herokuapp.com/book/get",
+        {
+          method: "POST",
+          body: JSON.stringify({ userId: userData.user.id }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       const bookResJson = await bookRes.json();
       if (bookResJson) {
         setBooks(bookResJson);
@@ -37,7 +40,7 @@ const Dashboard = () => {
   }, [userData.user]);
 
   const removeBook = () => {
-    fetch("http://localhost:3000/book", {
+    fetch("https://booking-app-back.herokuapp.com/book", {
       method: "DELETE",
       body: JSON.stringify({
         id: elToRemove._id,

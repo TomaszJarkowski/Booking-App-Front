@@ -34,17 +34,23 @@ const App = () => {
         token = "";
       }
 
-      const tokenRes = await fetch("http://localhost:3000/users/tokenIsValid", {
-        method: "POST",
-        headers: {
-          "x-auth-token": token,
-        },
-      });
+      const tokenRes = await fetch(
+        "https://booking-app-back.herokuapp.com/users/tokenIsValid",
+        {
+          method: "POST",
+          headers: {
+            "x-auth-token": token,
+          },
+        }
+      );
       const tokenResJson = await tokenRes.json();
       if (tokenResJson) {
-        const user = await fetch("http://localhost:3000/users", {
-          headers: { "x-auth-token": token },
-        });
+        const user = await fetch(
+          "https://booking-app-back.herokuapp.com/users",
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
         const userJson = await user.json();
         setUserData({
           ...userData,

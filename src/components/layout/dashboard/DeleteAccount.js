@@ -15,7 +15,7 @@ const DeleteAccount = (props) => {
     e.preventDefault();
     setLoading(true);
     let token = localStorage.getItem("auth-token");
-    fetch("http://localhost:3000/users/deleteUser", {
+    fetch("https://booking-app-back.herokuapp.com/users/deleteUser", {
       method: "DELETE",
       headers: { "x-auth-token": token },
     })

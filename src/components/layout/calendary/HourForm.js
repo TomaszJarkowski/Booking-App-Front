@@ -20,7 +20,7 @@ const HourForm = () => {
 
   const postData = () => {
     setLoading(true);
-    fetch("http://localhost:3000/book", {
+    fetch("https://booking-app-back.herokuapp.com/book", {
       method: "POST",
       body: JSON.stringify({
         ...bookData,

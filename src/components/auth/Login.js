@@ -29,13 +29,16 @@ const Login = () => {
   const postLogin = async (user) => {
     setLoading(true);
     try {
-      const login = await fetch("http://localhost:3000/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const login = await fetch(
+        "https://booking-app-back.herokuapp.com/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
       const loginResponse = await login.json();
       setLoading(false);
       if (loginResponse.error) {

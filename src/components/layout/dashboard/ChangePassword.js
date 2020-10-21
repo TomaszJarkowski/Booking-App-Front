@@ -28,7 +28,7 @@ const ChangePassword = () => {
   const submit = (e) => {
     e.preventDefault();
     setLoading(true);
-    fetch("http://localhost:3000/users/changePassword", {
+    fetch("https://booking-app-back.herokuapp.com/users/changePassword", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

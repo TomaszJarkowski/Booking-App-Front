@@ -1,21 +1,4 @@
 .page-booking {
-    h1 {
-        margin: 10px;
-        font-size: 40px;
-
-        @media (min-width: 900px) {
-            margin: 20px;
-        }
-    }
-
-    h2 {
-        margin: 10px;
-
-        @media (min-width: 900px) {
-            margin: 20px;
-        }
-    }
-
     .board {
         width: 100%;
         max-width: 900px;
@@ -25,11 +8,14 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        border-radius: 15px;
 
         a {
-            width: 200px;
+            width: 160px;
             margin: 10px;
+
+            @media (min-width: 500px) {
+                width: 200px;
+            }
         }
 
         .tile {
@@ -43,15 +29,27 @@
 
             h1 {
                 font-size: 28px;
-                margin: 10px;
+                margin: 5px;
+
+                @media (min-width: 500px) {
+                    margin: 10px;
+                }
             }
 
             h2 {
-                margin: 10px;
+                margin: 5px;
+
+                @media (min-width: 500px) {
+                    margin: 10px;
+                }
             }
 
             h3 {
-                margin: 10px;
+                margin: 5px;
+
+                @media (min-width: 500px) {
+                    margin: 10px;
+                }
             }
 
             &:hover {

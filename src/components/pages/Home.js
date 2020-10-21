@@ -6,16 +6,18 @@ const Home = () => {
   const history = useHistory();
   const handleClick = () => history.push("/booking");
   return (
-    <h2 className="page page-home">
+    <div className="page-home">
       <div className="container">
         <div className="content">
-          <h1>Ten-Go Baba</h1>
-          <h2>Book a table in the best restaurant in Poland</h2>
+          <h1 className="home__title">Restaurant</h1>
+          <h2 className="home__description">
+            Book a table in the best restaurant in Poland
+          </h2>
           <ButtonPrimary onClick={handleClick}>booking</ButtonPrimary>
         </div>
-        <img src={svg} alt="booking_svg" />
+        <img src={svg} alt="booking_svg" className="home__svg" />
       </div>
-    </h2>
+    </div>
   );
 };
 

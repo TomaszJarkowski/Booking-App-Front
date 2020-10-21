@@ -60,7 +60,7 @@ const Dashboard = () => {
     <Route
       render={() =>
         userData.user ? (
-          <div className="dashboard">
+          <div className="page-dashboard">
             <div className="container">
               <Switch>
                 <Route path="/dashboard/accept">
@@ -112,7 +112,7 @@ const Dashboard = () => {
                     <div></div>
                   </div>
                   <div className="color fewDays">
-                    <h3>Reservations for the next few days</h3>
+                    <h3>Other reservations</h3>
                     <div></div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 .success {
-    background-color: rgb(58, 196, 58);
+    background-color: rgb(78, 223, 78);
     position: absolute;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
     border-radius: 10px;
 
     h1 {
-        font-size: 50px;
+        font-size: 36px;
         letter-spacing: 3px;
         margin: 0;
     }
@@ -25,7 +25,7 @@
     }
 
     .button-primary {
-        color: #444;
+        color: $secondary-color;
         margin: 0;
     }
 }

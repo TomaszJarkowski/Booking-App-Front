@@ -1,12 +1,4 @@
-.dashboard {
-
-    h1 {
-        margin-left: 20px;
-    }
-
-    h2 {
-        margin-left: 20px;
-    }
+.page-dashboard {
 
     .dashboard__myData {
         margin-top: 20px;
@@ -31,15 +23,20 @@
 
         .colors {
             display: flex;
+            flex-direction: column;
+
+            @media (min-width:800px) {
+                flex-direction: row;
+            }
 
             .color {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-right: 40px;
+                margin: 20px 0;
 
                 h3 {
-                    margin-right: 10px;
+                    margin: 0 20px;
                 }
 
                 div {
@@ -51,19 +48,19 @@
 
             .today {
                 div {
-                    background-color: #11998e
+                    background-color: $green-color
                 }
             }
 
             .dedline {
                 div {
-                    background-color: rgb(219, 46, 46)
+                    background-color: $danger-color
                 }
             }
 
             .fewDays {
                 div {
-                    background-color: rgb(231, 225, 39)
+                    background-color: $yellow-color
                 }
             }
 
@@ -75,15 +72,25 @@
             align-items: center;
             justify-content: space-around;
             padding: 10px;
-            border: 2px solid #FEE996;
-            border-bottom: 8px solid rgb(231, 225, 39);
+            border: 2px solid gray;
+            border-bottom: 8px solid $yellow-color;
             border-radius: 10px;
             margin: 10px;
             font-weight: bold;
 
             a {
                 cursor: pointer;
-                color: rgb(219, 46, 46);
+                color: $danger-color;
+            }
+
+            .name {
+                display: none;
+
+                @media (min-width:650px) {
+                    display: block;
+                    max-width: 40%;
+                    word-break: break-all;
+                }
             }
         }
     }

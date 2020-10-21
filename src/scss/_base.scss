@@ -2,6 +2,11 @@
 
 
 $primary-color: #FEE996;
+$secondary-color: #444;
+$danger-color: rgb(219, 46, 46);
+$pink-color: #ff0099;
+$green-color: #11998e;
+$yellow-color: rgb(231, 225, 39);
 
 .container {
     width: 100%;
@@ -12,19 +17,37 @@ $primary-color: #FEE996;
 
 body {
     font-family: 'Quicksand', sans-serif;
-    color: #444;
+    color: $secondary-color;
+}
+
+a {
+    color: $secondary-color;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 20px;
+}
+
+h2 {
+    margin: 20px;
 }
 
 
 button {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     display: block;
-    padding: 10px 20px;
+    padding: 10px;
     letter-spacing: 2px;
     border-radius: 36px;
-    margin: 0 5px;
+    margin: 5px;
+
+    @media (min-width:450px) {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
 
 
     &:focus {
@@ -33,7 +56,7 @@ button {
 }
 
 .error-message {
-    color: #ff0099;
+    color: $pink-color;
     font-weight: bold;
 }
 
@@ -45,7 +68,6 @@ button {
 .button-primary {
     background: $primary-color;
     border: 3px solid $primary-color;
-
 }
 
 .button-secondary {
@@ -54,7 +76,7 @@ button {
 }
 
 .button-danger {
-    border: 3px solid rgb(219, 46, 46);
+    border: 3px solid $danger-color;
     background-color: rgb(228, 82, 82);
     color: white;
 }
@@ -67,5 +89,5 @@ button {
 }
 
 .star {
-    color: #ff0099;
+    color: $pink-color;
 }

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import userSVG from "../../svg/user.svg";
 const AuthOptions = () => {
   const { userData, setUserData } = useContext(UserContext);
 
@@ -22,10 +21,10 @@ const AuthOptions = () => {
       {userData.user ? (
         <>
           <div className="user" onClick={dashboard}>
-            <img src={userSVG} alt="" />
+            <i className="fas fa-user"></i>
             <p>{userData.user.userName}</p>
           </div>
-          <button onClick={logout} className="button-logout">
+          <button onClick={logout} className="button-secondary button-logout">
             Log out
           </button>
         </>

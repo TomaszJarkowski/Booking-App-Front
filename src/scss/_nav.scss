@@ -1,10 +1,9 @@
 nav {
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid $secondary-color;
 
     .logo {
-        margin: 0 10px;
-        color: #444;
-        font-size: 21px;
+        margin: 0 20px;
+        font-size: 20px;
 
         i {
             margin-right: 10px;
@@ -28,7 +27,7 @@ nav {
     }
 
     .auth-options {
-        margin: 0 10px;
+        margin: 0 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -37,36 +36,34 @@ nav {
         @media (min-width: 550px) {
             flex-direction: row;
         }
-
-    }
-
-    button {
-        margin-top: 10px;
     }
 
     .user {
         display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
-        margin-right: 40px;
+        height: 45px;
+        padding: 0 20px;
+        border-radius: 36px;
+        background: $primary-color;
+        border: 3px solid $primary-color;
 
         p {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 18px;
+
+            @media(min-width: 450px) {
+                font-size: 20px;
+            }
         }
 
-        img {
-            width: 30px;
-            margin: 0 5px;
+        i {
+            margin-right: 5px;
         }
-    }
 
-    .button-logout {
-        padding: 0;
-        border-radius: 0;
-        border-bottom: 2px solid transparent;
-
-        &:hover {
-            border-bottom: 2px solid $primary-color;
+        @media(min-width: 550px) {
+            margin-right: 10px;
         }
     }
 }

@@ -57,7 +57,7 @@ const ChangeUsername = () => {
 
   return (
     <Modal>
-      <form className="change-username" onSubmit={submit}>
+      <form className="change-username modal-form" onSubmit={submit}>
         <h2>Change username</h2>
         <label>New Username</label>
         <input

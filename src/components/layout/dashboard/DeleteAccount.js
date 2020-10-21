@@ -46,7 +46,7 @@ const DeleteAccount = (props) => {
 
   return (
     <Modal>
-      <form onSubmit={submit} className="delete-account">
+      <form onSubmit={submit} className="delete-account modal-form">
         <h2>Are you absolutely sure?</h2>
         <h3>
           This action cannot be undone. This will permanently delete the
@@ -68,13 +68,9 @@ const DeleteAccount = (props) => {
         {loading ? <Spinner /> : null}
         {isError ? <ErrorMessage error={error} /> : null}
         {isError ? (
-          <ButtonDisabled>
-            I understand the consequences, delete this account
-          </ButtonDisabled>
+          <ButtonDisabled>delete</ButtonDisabled>
         ) : (
-          <ButtonDanger>
-            I understand the consequences, delete this account
-          </ButtonDanger>
+          <ButtonDanger>delete </ButtonDanger>
         )}
       </form>
     </Modal>

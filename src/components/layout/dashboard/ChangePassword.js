@@ -58,7 +58,7 @@ const ChangePassword = () => {
 
   return (
     <Modal>
-      <form className="change-username" onSubmit={submit}>
+      <form className="change-username modal-form" onSubmit={submit}>
         <h2>Change password</h2>
         <label>Old password</label>
         <input

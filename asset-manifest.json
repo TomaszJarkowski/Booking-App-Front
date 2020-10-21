@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Booking-App-Front/static/css/main.8f460c35.chunk.css",
+    "main.js": "/Booking-App-Front/static/js/main.e6872cd5.chunk.js",
+    "main.js.map": "/Booking-App-Front/static/js/main.e6872cd5.chunk.js.map",
+    "runtime-main.js": "/Booking-App-Front/static/js/runtime-main.eb5230d1.js",
+    "runtime-main.js.map": "/Booking-App-Front/static/js/runtime-main.eb5230d1.js.map",
+    "static/js/2.5ccdc169.chunk.js": "/Booking-App-Front/static/js/2.5ccdc169.chunk.js",
+    "static/js/2.5ccdc169.chunk.js.map": "/Booking-App-Front/static/js/2.5ccdc169.chunk.js.map",
+    "index.html": "/Booking-App-Front/index.html",
+    "precache-manifest.dbd399cd1706d3aae797b52bef4752c9.js": "/Booking-App-Front/precache-manifest.dbd399cd1706d3aae797b52bef4752c9.js",
+    "service-worker.js": "/Booking-App-Front/service-worker.js",
+    "static/css/main.8f460c35.chunk.css.map": "/Booking-App-Front/static/css/main.8f460c35.chunk.css.map",
+    "static/js/2.5ccdc169.chunk.js.LICENSE.txt": "/Booking-App-Front/static/js/2.5ccdc169.chunk.js.LICENSE.txt",
+    "static/media/404.svg": "/Booking-App-Front/static/media/404.59156c30.svg",
+    "static/media/undraw_Booking_re_gw4j.svg": "/Booking-App-Front/static/media/undraw_Booking_re_gw4j.16babcc0.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eb5230d1.js",
+    "static/js/2.5ccdc169.chunk.js",
+    "static/css/main.8f460c35.chunk.css",
+    "static/js/main.e6872cd5.chunk.js"
+  ]
+}

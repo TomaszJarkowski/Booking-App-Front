@@ -103,6 +103,9 @@ const Login = () => {
                   ) : (
                     <ButtonPrimary>Log in</ButtonPrimary>
                   )}
+                  <a className="forgot-link" href="/forgot">
+                    Forgot Password
+                  </a>
                 </form>
               </div>
             </div>

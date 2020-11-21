@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import Error from "./components/pages/Error";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Forgot from "./components/auth/Forgot";
 
 const Page = () => {
   return (
@@ -15,6 +16,7 @@ const Page = () => {
         <Route path="/home" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/forgot" component={Forgot} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/booking" component={Booking} />
         <Route path="/" component={Error} />

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 import Spinner from "../layout/Spinner";
 import ErrorMessage from "../layout/ErrorMessage";
 import ButtonPrimary from "../layout/buttons/ButtonPrimary";
@@ -11,9 +12,10 @@ const Forgot = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [isSend, setIsSend] = useState(false);
-  const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  const history = useHistory();
+  const { userData } = useContext(UserContext);
+
+  const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   const validation = () => {
     setIsError(false);
@@ -62,40 +64,48 @@ const Forgot = () => {
   };
 
   return (
-    <>
-      <div className="page page-form">
-        <div className="form">
-          {isSend ? (
-            <CheckMail />
-          ) : (
-            <>
-              <h2>Forgot your password?</h2>
-              <form onSubmit={submit}>
-                <label htmlFor="forgot-email">
-                  Email Address <span className="star">*</span>
-                </label>
-                <input
-                  id="forgot-email"
-                  type="email"
-                  onKeyUp={validation}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    validation();
-                  }}
-                />
-                {loading ? <Spinner /> : null}
-                {isError ? <ErrorMessage error={error} /> : null}
-                {isError ? (
-                  <ButtonDisabled>Reset Password</ButtonDisabled>
+    <Route
+      render={() =>
+        !userData.user ? (
+          <>
+            <div className="page page-form">
+              <div className="form">
+                {isSend ? (
+                  <CheckMail />
                 ) : (
-                  <ButtonPrimary>Reset Password</ButtonPrimary>
+                  <>
+                    <h2>Forgot your password?</h2>
+                    <form onSubmit={submit}>
+                      <label htmlFor="forgot-email">
+                        Email Address <span className="star">*</span>
+                      </label>
+                      <input
+                        id="forgot-email"
+                        type="email"
+                        onKeyUp={validation}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          validation();
+                        }}
+                      />
+                      {loading ? <Spinner /> : null}
+                      {isError ? <ErrorMessage error={error} /> : null}
+                      {isError ? (
+                        <ButtonDisabled>Reset Password</ButtonDisabled>
+                      ) : (
+                        <ButtonPrimary>Reset Password</ButtonPrimary>
+                      )}
+                    </form>
+                  </>
                 )}
-              </form>
-            </>
-          )}
-        </div>
-      </div>
-    </>
+              </div>
+            </div>
+          </>
+        ) : (
+          <Redirect to="/" />
+        )
+      }
+    />
   );
 };
 

@@ -10,6 +10,9 @@ const validationChangeUsername = (changeUsername) => {
   if (changeUsername.length < 4) {
     throw new Error("The minimum username length is: 4");
   }
+  if (changeUsername.length > 16) {
+    throw new Error("The maximum username length is: 16");
+  }
 };
 
 export default validationChangeUsername;

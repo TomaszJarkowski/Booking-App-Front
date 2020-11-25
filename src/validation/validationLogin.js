@@ -17,6 +17,9 @@ const validationLogin = (email, password) => {
   if (password.length < 7) {
     throw new Error("The minimum password length is: 7");
   }
+  if (password.length > 16) {
+    throw new Error("The maximum password length is: 16");
+  }
 };
 
 export default validationLogin;

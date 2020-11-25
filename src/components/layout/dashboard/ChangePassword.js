@@ -47,6 +47,7 @@ const ChangePassword = () => {
           setIsError(true);
         } else {
           setIsError(false);
+          localStorage.clear();
           window.location.reload();
         }
       })

@@ -51,7 +51,11 @@ nav {
 
         p {
             font-weight: bold;
-            font-size: 18px;
+            font-size: 16px;
+
+            @media(min-width: 400px) {
+                font-size: 18px;
+            }
 
             @media(min-width: 450px) {
                 font-size: 20px;

@@ -5,6 +5,7 @@ Booking-App-Front is the front end of a web application for booking tables in re
 From the user level, you can:
 
 - make a reservation
+- password reminder
 - deleting a reservation
 - deleting account
 - changing username

@@ -34,6 +34,15 @@ const validationChangePassword = (
   if (confirmNewPassword.length < 7) {
     throw new Error("The minimum confirm new password length is: 7");
   }
+  if (oldPassword.length > 16) {
+    throw new Error("The maximum old password length is: 16");
+  }
+  if (newPassword.length > 16) {
+    throw new Error("The maximum  new password length is: 16");
+  }
+  if (confirmNewPassword.length > 16) {
+    throw new Error("The maximum confirm new password length is: 16");
+  }
   if (newPassword !== confirmNewPassword) {
     throw new Error(
       "New Password must be the same as the confirm new password"

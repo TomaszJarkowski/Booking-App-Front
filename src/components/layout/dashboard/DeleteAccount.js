@@ -26,6 +26,7 @@ const DeleteAccount = (props) => {
           isError(true);
           setError(response.error);
         } else {
+          localStorage.clear();
           window.location.reload();
         }
       })
